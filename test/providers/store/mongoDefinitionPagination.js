@@ -33,11 +33,8 @@ const shouldPaginateSearchCorrectly = function () {
     })
 
     after('cleanup database', async function () {
-      if (mongoStore) {
-        await mongoStore.collection.drop()
-        await mongoStore.close()
-      }
-
+      await mongoStore.collection.drop()
+      await mongoStore.close()
       await mongoServer.stop()
     })
 
